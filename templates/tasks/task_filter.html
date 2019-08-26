@@ -1,9 +1,27 @@
 {% block content %}
     <form action="" method="get">
-        {{ filter.form.as_p }}
+        {{ filter.form }}
         <input type="submit" />
     </form>
-    {% for obj in filter.qs %}
-        {{ obj.name }}<br />
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Event</th>
+            <th>Name</th>
+            <th>Priority</th>
+            <th>Done</th>
+            <th></th>
+        </tr>
+    {% for task in filter.qs %}
+        <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.event}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.done}}</td>
+            <td><a href="{% url 'task_update' task.id %}">Update</a></td>
+        </tr>
     {% endfor %}
+    </table>
+    <a href="{% url 'task_create' %}">Create</a>
 {% endblock %}

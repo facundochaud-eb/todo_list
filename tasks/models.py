@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-import django_filters
 
 
 class Priority(models.Model):
