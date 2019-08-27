@@ -11,6 +11,7 @@
             <th>Priority</th>
             <th>Done</th>
             <th></th>
+            <th></th>
         </tr>
     {% for task in filter.qs %}
         <tr>
@@ -20,6 +21,7 @@
             <td>{{task.priority}}</td>
             <td>{{task.done}}</td>
             <td><a href="{% url 'task_update' task.id %}">Update</a></td>
+            <td><a href="{% url 'task_done' task.id %}">Done/Undone</a></td>
         </tr>
     {% endfor %}
     </table>

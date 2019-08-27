@@ -21,4 +21,9 @@ urlpatterns = [
         views.TaskUpdate.as_view(),
         name='task_update'
     ),
+    url(
+        r'(?P<pk>[0-9]+)/check',
+        views.task_done,
+        name='task_done'
+    ),
 ]
