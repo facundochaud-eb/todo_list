@@ -26,4 +26,9 @@ urlpatterns = [
         views.task_done,
         name='task_done'
     ),
+    url(
+        r'(?P<pk>[0-9]+)/delete',
+        views.TaskDelete.as_view(),
+        name='task_delete'
+    )
 ]

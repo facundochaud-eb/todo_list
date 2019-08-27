@@ -1,14 +1,12 @@
+{% extends "base.html" %}
+
 {% load bootstrap3 %}
 
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% bootstrap_messages %}
-
-<div class="container">
-   <h1>Form Task</h1>
-   <form method="post" class="form">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      <button type="submit" class="btn btn-primary btn-block">Submit</button>
-   </form>
-</div>
+{% block content %}
+<h1>Form Task</h1>
+<form method="post" class="form">
+   {% csrf_token %}
+   {% bootstrap_form form %}
+   <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+{% endblock %}
