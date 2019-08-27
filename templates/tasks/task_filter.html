@@ -1,29 +1,44 @@
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
 {% block content %}
-    <form action="" method="get">
-        {{ filter.form }}
-        <input type="submit" />
-    </form>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Event</th>
-            <th>Name</th>
-            <th>Priority</th>
-            <th>Done</th>
-            <th></th>
-            <th></th>
-        </tr>
-    {% for task in filter.qs %}
-        <tr>
-            <td>{{task.id}}</td>
-            <td>{{task.event}}</td>
-            <td>{{task.name}}</td>
-            <td>{{task.priority}}</td>
-            <td>{{task.done}}</td>
-            <td><a href="{% url 'task_update' task.id %}">Update</a></td>
-            <td><a href="{% url 'task_done' task.id %}">Done/Undone</a></td>
-        </tr>
-    {% endfor %}
-    </table>
-    <a href="{% url 'task_create' %}">Create</a>
+<div class="container">
+    <div class="row">
+        <h1>TODO List</h1>
+    </div>
+    <div class="row">
+        <form action="" method="get" class="form">
+            {{ filter.form }}
+            <input type="submit" class="btn btn-default btn-xs" />
+        </form>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Event</th>
+                <th>Name</th>
+                <th>Priority</th>
+                <th>Done</th>
+                <th></th>
+                <th></th>
+            </tr>
+        {% for task in filter.qs %}
+            <tr>
+                <td>{{task.id}}</td>
+                <td>{{task.event}}</td>
+                <td>{{task.name}}</td>
+                <td>{{task.priority}}</td>
+                <td>{{task.done}}</td>
+                <td><a href="{% url 'task_update' task.id %}">Update</a></td>
+                <td><a href="{% url 'task_done' task.id %}">Done/Undone</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'task_create' %}" class="btn btn-primary btn-block">Create</a>
+</div>
 {% endblock %}
