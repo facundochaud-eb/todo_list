@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="row">
+    <h1>Events List</h1>
+</div>
+<div class="row">
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Event Name</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+    {% for event in object_list %}
+        <tr>
+            <td>{{event.id}}</td>
+            <td>{{event.name}}</td>
+            <td>{{event.user}}</td>
+            <td><a href="{% url 'tasks_list' event.id %}">Tasks</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

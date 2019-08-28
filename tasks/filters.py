@@ -1,6 +1,7 @@
 import django_filters
 from django import forms
 from .models import Task, Priority, Event
+# from .services import get_events
 
 
 class TaskFilter(django_filters.FilterSet):

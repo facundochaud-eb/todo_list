@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="row">
+    <h1>TODO List</h1>
+</div>
+<div class="row">
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Event</th>
+            <th>Name</th>
+            <th>Priority</th>
+            <th>Done</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    {% for task in object_list %}
+        <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.event}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.done}}</td>
+            <td><a href="{% url 'task_done' event_id task.id %}">{% if task.done %} Undo {% else %} Done {% endif %}</a></td>
+            <td><a href="{% url 'task_update' event_id task.id %}">Update</a></td>
+            <td><a href="{% url 'task_delete' event_id task.id %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+<div class="row">
+    <a href="{% url 'task_create' event_id %}" class="btn btn-primary btn-block">Create</a>
+</div>
+{% endblock %}

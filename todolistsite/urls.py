@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from tasks.views import Login, Logout
 
 urlpatterns = [
-    url(r'^tasks/', include('tasks.urls')),
+    url(r'accounts/logout', Logout.as_view(), name='logout'),
+    url(r'accounts/login', Login.as_view(), name='login'),
+    url(r'^events/', include('tasks.urls')),
     url(r'^admin/', admin.site.urls),
+    url('', include('social_django.urls', namespace='social')),
 ]
