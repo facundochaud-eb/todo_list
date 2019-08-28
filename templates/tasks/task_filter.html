@@ -31,7 +31,7 @@
             <td>{{task.name}}</td>
             <td>{{task.priority}}</td>
             <td>{{task.done}}</td>
-            <td><a href="{% url 'task_done' task.id %}">Done/Undone</a></td>
+            <td><a href="{% url 'task_done' task.id %}">{% if task.done %} Undo {% else %} Done {% endif %}</a></td>
             <td><a href="{% url 'task_update' task.id %}">Update</a></td>
             <td><a href="{% url 'task_delete' task.id %}">Delete</a></td>
         </tr>
