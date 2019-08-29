@@ -40,4 +40,4 @@ class Event(models.Model):
     )
 
     def __str__(self):
-        return f"<Event: {self.name} from {self.user}>"
+        return f"<Event {self.id}: {self.name} from {self.user}>"
