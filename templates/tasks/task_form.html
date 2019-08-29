@@ -1,12 +1,21 @@
-{% extends "base.html" %}
+{% extends "tasks/tasks_list.html" %}
 
 {% load bootstrap3 %}
+
+{% load django_bootstrap_breadcrumbs %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Task" "tasks_update" %}
+{% endblock %}
 
 {% block content %}
 <h1>Form Task</h1>
 <form method="post" class="form">
    {% csrf_token %}
    {% bootstrap_form form %}
-   <button type="submit" class="btn btn-primary btn-block">Submit</button>
+   <button type="submit" class="btn btn-primary btn-block">
+      <span class="glyphicon glyphicon-floppy-disk"></span> Submit
+   </button>
 </form>
 {% endblock %}

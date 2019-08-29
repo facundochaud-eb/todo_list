@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrap3',
     'social_django',
+    'django_bootstrap_breadcrumbs',
 ]
 
 MIDDLEWARE = [

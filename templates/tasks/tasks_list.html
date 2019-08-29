@@ -1,6 +1,15 @@
-{% extends "base.html" %}
+{% extends "tasks/events_list.html" %}
 
 {% load bootstrap3 %}
+
+{% load django_bootstrap_breadcrumbs %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb_for "tasks_list" event.id %}
+        Tasks for {{ event.name }}
+    {% endbreadcrumb_for %}
+{% endblock %}
 
 {% block content %}
 <div class="row">
@@ -14,9 +23,7 @@
             <th>Name</th>
             <th>Priority</th>
             <th>Done</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th class="fit"></th>
         </tr>
     {% for task in object_list %}
         <tr>
@@ -25,14 +32,32 @@
             <td>{{task.name}}</td>
             <td>{{task.priority}}</td>
             <td>{{task.done}}</td>
-            <td><a href="{% url 'task_done' event_id task.id %}">{% if task.done %} Undo {% else %} Done {% endif %}</a></td>
-            <td><a href="{% url 'task_update' event_id task.id %}">Update</a></td>
-            <td><a href="{% url 'task_delete' event_id task.id %}">Delete</a></td>
+            <td class="fit"><div class="btn-group">
+                <button class="btn btn-default">
+                    <a href="{% url 'task_done' event.id task.id %}">
+                        {% if task.done %}<span class="glyphicon glyphicon-unchecked"></span> Undo
+                        {% else %}<span class="glyphicon glyphicon-check"></span> Do
+                        {% endif %}
+                    </a>
+                </button>
+                <button class="btn btn-default">
+                    <a href="{% url 'task_update' event.id task.id %}">
+                        <span class="glyphicon glyphicon-edit"></span> Update
+                    </a>
+                </button>
+                <button class="btn btn-default">
+                    <a href="{% url 'task_delete' event.id task.id %}">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </a>
+                </button>
+            </div></td>
         </tr>
     {% endfor %}
     </table>
 </div>
 <div class="row">
-    <a href="{% url 'task_create' event_id %}" class="btn btn-primary btn-block">Create</a>
+    <a href="{% url 'task_create' event.id %}" class="btn btn-primary btn-block">
+        <span class="glyphicon glyphicon-plus"></span> Create
+    </a>
 </div>
 {% endblock %}

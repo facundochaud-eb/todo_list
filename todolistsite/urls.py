@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import RedirectView
 from tasks.views import Login, Logout
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     url(r'^events/', include('tasks.urls')),
     url(r'^admin/', admin.site.urls),
     url('', include('social_django.urls', namespace='social')),
+    url('', RedirectView.as_view(url='/events/'))
 ]

@@ -33,7 +33,8 @@ class TasksList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['event_id'] = self.kwargs['pk_event']
+        event = services.get_event(self.request.user, self.kwargs['pk_event'])
+        context['event'] = event
         return context
 
 
@@ -50,6 +51,12 @@ class TaskCreate(LoginRequiredMixin, CreateView):
         obj.event_id = self.kwargs['pk_event']
         obj.save()
         return HttpResponseRedirect(self.get_success_url())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        event = services.get_event(self.request.user, self.kwargs['pk_event'])
+        context['event'] = event
+        return context
 
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
@@ -68,6 +75,12 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
         obj.event_id = self.kwargs['pk_event']
         obj.save()
         return HttpResponseRedirect(self.get_success_url())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        event = services.get_event(self.request.user, self.kwargs['pk_event'])
+        context['event'] = event
+        return context
 
 
 class TaskDelete(LoginRequiredMixin, DeleteView):
