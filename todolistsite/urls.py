@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'accounts/login', Login.as_view(), name='login'),
     url(r'^events/', include('tasks.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', RedirectView.as_view(pattern_name='events_list')),
     url('', include('social_django.urls', namespace='social')),
-    url('', RedirectView.as_view(url='/events/'))
 ]
