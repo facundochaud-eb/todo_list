@@ -6,18 +6,10 @@ API_URL = 'https://www.eventbriteapi.com/v3/'
 EVENTS = []
 
 
-def get_user(token):
-    url = API_URL + 'users/me/'
-    params = {
-        'token': token,
-    }
-    return requests.get(url, params).json()
-
-
 def get_event(user, event_id):
     # check "cache"
     for event in EVENTS:
-        if event.id == str(event_id):
+        if str(event.id) == str(event_id):
             return event
     # if not in cache
     token = get_token_from_user(user)
@@ -45,7 +37,7 @@ def get_events(token, user):
 
 
 def get_token(request):
-    return request.user.social_auth.filter(provider='eventbrite')[0].access_token
+    return get_token_from_user(request.user)
 
 
 def get_token_from_user(user):
