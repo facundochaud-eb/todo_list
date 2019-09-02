@@ -1,0 +1,80 @@
+{
+    "name": {
+        "text": "PASO Nacional 2019", 
+        "html": "PASO Nacional 2019"
+    }, 
+    "description": {
+        "text": "La segunda de 5 elecciones en la provincia.", 
+        "html": "La segunda de 5 elecciones en la provincia."
+    }, 
+    "url": "https://www.eventbrite.com.ar/e/paso-nacional-2019-registration-68265236159", 
+    "start": {
+        "timezone": "America/Argentina/Mendoza", 
+        "local": "2019-08-11T08:00:00", 
+        "utc": "2019-08-11T11:00:00Z"
+    }, 
+    "end": {
+        "timezone": "America/Argentina/Mendoza", 
+        "local": "2019-08-11T20:00:00", 
+        "utc": "2019-08-11T23:00:00Z"
+    }, 
+    "organization_id": "323343924757", 
+    "created": "2019-08-07T12:44:47Z", 
+    "changed": "2019-08-12T03:35:39Z", 
+    "published": "2019-08-07T13:07:28Z", 
+    "capacity": 1500, 
+    "capacity_is_custom": false, 
+    "status": "completed", 
+    "currency": "ARS", 
+    "listed": false, 
+    "shareable": false, 
+    "invite_only": false, 
+    "online_event": false, 
+    "show_remaining": false, 
+    "tx_time_limit": 480, 
+    "hide_start_date": true, 
+    "hide_end_date": true, 
+    "locale": "es_AR", 
+    "is_locked": false, 
+    "privacy_setting": "unlocked", 
+    "is_series": false, 
+    "is_series_parent": false, 
+    "inventory_type": "limited", 
+    "is_reserved_seating": false, 
+    "show_pick_a_seat": false, 
+    "show_seatmap_thumbnail": false, 
+    "show_colors_in_seatmap_thumbnail": false, 
+    "source": "coyote", 
+    "is_free": false, 
+    "version": "3.7.0", 
+    "summary": "La segunda de 5 elecciones en la provincia.", 
+    "logo_id": "67842911", 
+    "organizer_id": "26146971505", 
+    "venue_id": "35686431", 
+    "category_id": "112", 
+    "subcategory_id": "12005", 
+    "format_id": "11", 
+    "id": "68265236159", 
+    "resource_uri": "https://www.eventbriteapi.com/v3/events/68265236159/", 
+    "is_externally_ticketed": false, 
+    "logo": {
+        "crop_mask": {
+            "top_left": {
+                "x": 96, 
+                "y": 0
+            }, 
+            "width": 448, 
+            "height": 224
+        }, 
+        "original": {
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F67842911%2F323343924757%2F1%2Foriginal.20190807-124551?auto=compress&s=bdf73ea4981fcb54855deb44b0a4b953", 
+            "width": 640, 
+            "height": 224
+        }, 
+        "id": "67842911", 
+        "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F67842911%2F323343924757%2F1%2Foriginal.20190807-124551?h=200&w=450&auto=compress&rect=96%2C0%2C448%2C224&s=c898aa3e269541965102df6f20ebf59a", 
+        "aspect_ratio": "2", 
+        "edge_color": "#eff1f4", 
+        "edge_color_set": true
+    }
+}

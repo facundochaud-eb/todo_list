@@ -19,8 +19,7 @@ class EventsList(LoginRequiredMixin, ListView):
     template_name = 'tasks/events_list.html'
 
     def get_queryset(self):
-        token = services.get_token(self.request)
-        return services.get_events(token, self.request.user)
+        return services.get_events(self.request.user)
 
 
 class TasksList(LoginRequiredMixin, ListView):

@@ -23,6 +23,7 @@ class Task(models.Model):
     )
     event_id = models.IntegerField(null=True)
 
+    # TODO: test
     @property
     def event(self):
         from tasks import services
