@@ -1,0 +1,5 @@
+from .base import *
+
+
+SOCIAL_AUTH_EVENTBRITE_KEY = ''
+SOCIAL_AUTH_EVENTBRITE_SECRET = ''

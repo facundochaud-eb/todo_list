@@ -1,4 +1,5 @@
 from django.test import TestCase
+from faker import Faker
 import json
 from parameterized import parameterized
 from unittest.mock import patch
@@ -7,9 +8,9 @@ from social_django.models import UserSocialAuth
 from . import services
 from .models import Priority, Event
 from .factories import TaskFactory, EventFactory, UserFactory
-from todolistsite import get_env_variable
 
 PRIORITIES = ["LOW", "NORMAL", "URGENT"]
+FAKE_ACCESS_TOKEN = Faker().pystr(min_chars=20, max_chars=20)
 
 
 def mocked_requests_get_events(*args, **_):
@@ -50,19 +51,19 @@ class TaskServicesTestCase(TestCase):
             provider='eventbrite',
             extra_data={
                 'auth_time': 1567438201,
-                'access_token': get_env_variable('ACCESS_TOKEN'),
+                'access_token': FAKE_ACCESS_TOKEN,
                 'token_type': 'bearer'
             }
         )
 
     def test_get_token_from_user(self):
-        self.assertEqual(services.get_token_from_user(self.user), get_env_variable('ACCESS_TOKEN'))
+        self.assertEqual(services.get_token_from_user(self.user), FAKE_ACCESS_TOKEN)
 
     @patch('tasks.services.requests.get', return_value=mocked_requests_get_events())
     def test_get_events(self, mocked_request):
         events = services.get_events(self.user)
         self.assertEqual(mocked_request.call_args[0][0], 'https://www.eventbriteapi.com/v3/users/me/events/')
-        self.assertEqual(mocked_request.call_args[0][1]['token'], get_env_variable('ACCESS_TOKEN'))
+        self.assertEqual(mocked_request.call_args[0][1]['token'], FAKE_ACCESS_TOKEN)
         self.assertEqual(18, len(events))
         for event in events:
             self.assertIsInstance(event, Event)
