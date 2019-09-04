@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +25,9 @@ SECRET_KEY = 'v74&a50e9+(ajwtpvmv9*98wq1s+9q87)j=emueggge1%p#32m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'frozen-waters-14364.herokuapp.com'
+]
 
 
 # Application definition
@@ -81,17 +82,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.eventbrite.EventbriteOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
