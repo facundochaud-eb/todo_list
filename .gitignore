@@ -108,3 +108,6 @@ venv.bak/
 
 # todolist.sh activator with env vars
 todolist.sh
+
+# statics
+staticfiles/

@@ -6,7 +6,8 @@ coverage==4.5.4
 coveralls==1.8.2
 decorator==4.4.0
 defusedxml==0.6.0
-django==1.11.24
+dj-database-url==0.5.0
+Django==1.11.24
 django-bootstrap-breadcrumbs==0.9.1
 django-bootstrap3==11.1.0
 django-filter==2.2.0
@@ -15,6 +16,7 @@ entrypoints==0.3
 factory-boy==2.12.0
 Faker==2.0.1
 flake8==3.7.8
+gunicorn==19.9.0
 idna==2.8
 ipdb==0.12.2
 ipython==7.7.0
@@ -28,6 +30,7 @@ pep8==1.7.1
 pexpect==4.7.0
 pickleshare==0.7.5
 prompt-toolkit==2.0.9
+psycopg2-binary==2.8.3
 ptyprocess==0.6.0
 pycodestyle==2.5.0
 pyflakes==2.1.1
@@ -45,3 +48,4 @@ text-unidecode==1.2
 traitlets==4.3.2
 urllib3==1.25.3
 wcwidth==0.1.7
+whitenoise==4.1.3
