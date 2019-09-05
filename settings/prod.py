@@ -20,3 +20,7 @@ DATABASES = {
 DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(DB_FROM_ENV)
+
+ALLOWED_HOSTS = [
+    'frozen-waters-14364.herokuapp.com'
+]

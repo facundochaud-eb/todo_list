@@ -26,8 +26,11 @@ class Task(models.Model):
     # TODO: test
     @property
     def event(self):
-        from tasks import services
-        return services.get_event(self.user, self.event_id)
+        try:
+            from tasks import services
+            return services.get_event(self.user, self.event_id)
+        except Exception:
+            return Event(id=self.event_id, user=self.user, name="Not found event")
 
     def __str__(self):
         return f"<Task: {self.name}, done? {self.done}, priority: {self.priority}, event: {self.event}>"

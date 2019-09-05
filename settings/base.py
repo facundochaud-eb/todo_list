@@ -25,10 +25,6 @@ SECRET_KEY = 'v74&a50e9+(ajwtpvmv9*98wq1s+9q87)j=emueggge1%p#32m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'frozen-waters-14364.herokuapp.com'
-]
-
 
 # Application definition
 
