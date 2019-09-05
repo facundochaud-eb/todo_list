@@ -13,11 +13,18 @@ def get_event(user, event_id):
         if event.id == event_id:
             return event
     # if not in cache
-    token = get_token_from_user(user)
+    try:
+        token = get_token_from_user(user)
+    except IndexError:
+        return Event(id=int(event_id), name='Not EVB User', user=user)
     url = API_URL + 'events/' + str(event_id)
     params = {'token': token}
-    req = requests.get(url, params).json()
-    event = Event(id=int(req['id']), name=req['name']['text'], user=user)
+    res = requests.get(url, params)
+    if res.status_code == 200:
+        req = res.json()
+        event = Event(id=int(req['id']), name=req['name']['text'], user=user)
+    else:
+        event = Event(id=int(event_id), name='Event not found', user=user)
     EVENTS.append(event)
     print(f"API REQUEST: {event} DONE")
     return event
