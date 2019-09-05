@@ -1,12 +1,15 @@
 language: python
 python:
-  - "3.7"
+- '3.7'
 cache: pip
-# command to install dependencies
 install:
-  - pip install -r requirements.txt
-# command to run tests
+- pip install -r requirements.txt
 script:
-  - coverage run --source='.' ./manage.py test --settings=settings.test
+- coverage run --source='.' ./manage.py test --settings=settings.test
 after_success:
-  - coveralls
+- coveralls
+deploy:
+  provider: heroku
+  app: frozen-waters-14364
+  api_key:
+    secure: AlHK1Lk3y1ejzb8NDLcP1tUesVm4U0z8W+oFf4/dXVofnQTB/S04rMzwTzVD95URh5ieVFUrLdSSqu2fqiWEK1BXj4J9FfF4pyaB3Xrb8Gef3k7Xh7AechoN3Kzgsqt8ts63bM/VHCrpNybz2yUc8U36ifr5yP+MYaoM9iDDkWfFRw7txKg5AO+Imzuka7Yiu5ZJGqm9qIXRNtU1ixVuUQKls/b8OnVNDb/nJNaz1haJROvV+23urves9/EOXp7n5jX3kp/MWM7lR437/4gYPHMlyeQT0vLexhLPvk2wv9m3LtIiubzQSogUuT5feE0Uumj99au727LAWW2mA9Mxha2CbHLe3hs8Efcy8k5QQJuqBqq9CBm4LmwsDpFa1IDZVPz6H5pzlXpaotf07HDUA3a8xH/PcKH4D2+6ZPs9vxbGYMhM677E3LqcudldJanQ3dJMGryylUbkHm1e1bKGQgD5oJugmAIYzjXb5ATXndQueKcwunXj/rdnVhUUANHPOous+1Jf1yUe0sOpUz4/K2OF6yDgAGRztX/hJYokNykgF+uq+PEl8jlcT8CzdQjSRdBiaw3ptf2QEVbireAoTKBRJVNGfWKO/FGPGqSTzr+k5AoF5nF1Uj9qTiBi20WMAejI1XsAI4cS/YhfjYWzVV9yqCYmyodTo3PDEuGHp44=

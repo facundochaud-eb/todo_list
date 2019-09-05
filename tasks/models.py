@@ -21,7 +21,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         null=True
     )
-    event_id = models.IntegerField(null=True)
+    event_id = models.BigIntegerField(null=True)
 
     # TODO: test
     @property
