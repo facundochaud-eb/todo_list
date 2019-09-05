@@ -1,0 +1,7 @@
+[run]
+source = .
+omit =
+    tasks/tests.py
+    settings/*
+    *wsgi.py
+    *apps.py

@@ -23,8 +23,6 @@ def mocked_requests_get_events(*args, **_):
             with open('tasks/tests/api_response_events.json', 'r') as f:
                 return json.loads(f.read())
 
-        def raise_for_status(self):
-            pass
     return MockResponse()
 
 
@@ -38,8 +36,6 @@ def mocked_requests_get_event(*args, **_):
             with open('tasks/tests/api_response_event.json', 'r') as f:
                 return json.loads(f.read())
 
-        def raise_for_status(self):
-            pass
     return MockResponse()
 
 
@@ -53,8 +49,6 @@ def mocked_requests_not_found_event(*args, **_):
             with open('tasks/tests/api_response_not_found_event.json', 'r') as f:
                 return json.loads(f.read())
 
-        def raise_for_status(self):
-            pass
     return MockResponse()
 
 
